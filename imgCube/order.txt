@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ./variable
+counter=1
+for filename in *
+do
+    mv $filename img${counter}.jpg
+    echo img${counter}.jpg
+    counter=$(( $counter + 1 ))
+done
+cd ..
