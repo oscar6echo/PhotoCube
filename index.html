@@ -79,7 +79,7 @@
 			var mouseXOnMouseDown = 0;
 
 			var webGLAvailable;
-			var imgNb = 23;		// Change imgNb to the exact number of pictures in ./imgCube/variable/
+			var imgNb = 30;		// Change imgNb to the exact number of pictures in ./imgCube/variable/
 			var allTexture = [];
 			var cubeTexture = [];
 			var mapFace = [5, 1, 6, 2];
@@ -94,6 +94,8 @@
 				container = document.getElementById('container');
 
 				webGLAvailable = Detector.webgl;
+				//webGLAvailable = 0;
+
 				if(webGLAvailable){
 					renderer = new THREE.WebGLRenderer({antialias:true});
 					document.getElementById("line3").innerHTML = "WebGL";
@@ -112,7 +114,7 @@
 				camera.lookAt(new THREE.Vector3(0, 150, 0));
 				
 				// Cube
-				var cubeGeometry = new THREE.CubeGeometry(200, 200, 200);
+				var cubeGeometry = new THREE.CubeGeometry(200, 200, 200, 4, 4, 4);
 
 				for (var i=0; i<imgNb; i++){
 					// make sure all pictures are jpg or change the line below
@@ -133,7 +135,7 @@
 						cubeMaterials.push(new THREE.MeshLambertMaterial({ map: cubeTexture[i] }));
 					}
 					else{
-						cubeMaterials.push(new THREE.MeshBasicMaterial({ map: cubeTexture[i] }));
+						cubeMaterials.push(new THREE.MeshBasicMaterial({ map: cubeTexture[i], overdraw: true }));
 					}
 				}
 				var cubeMaterial = new THREE.MeshFaceMaterial(cubeMaterials);
