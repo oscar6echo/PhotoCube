@@ -3,7 +3,7 @@
 **Photo cube** is a small html+css+js file built with [three.js](https://github.com/mrdoob/three.js).
 It displays a series of picture in a web page, for quick/fun browsing.
 
-Pictures must be located in imgCube/variable/ directory and named img1.jpg to img{number of pics}.jpg.
+Pictures should be squared to avoid distortion, and must be located in imgCube/variable/ directory and named img1.jpg to img{number of pics}.jpg.
 In index.html line 82, variable imgNb must be set to {number of pics}.
 
 [See the example](http://oscar6echo.github.com/PhotoCube/).
